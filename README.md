@@ -344,7 +344,7 @@ SOFTWARE.
 
 ## 📊 Statistiques du projet
 
-- **Durée du projet** : 6 mois (mai 2024 - juillet 2024)
+- **Durée du projet** : 3 mois (mai 2024 - juillet 2024)
 - **Lignes de code** : ~5000+
 - **Sites scrapés** : eBay, Jumia, et autres
 - **Produits collectés** : 1000+
