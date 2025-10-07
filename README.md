@@ -215,33 +215,33 @@ await products.insert({
 ### Étapes d'installation
 
 1. **Cloner le repository**
-git clone https://github.com/Oumayma-Rochdi/MarketPulse.git
-cd marketpulse
+`git clone https://github.com/Oumayma-Rochdi/MarketPulse.git`
+`cd marketpulse`
 
 
 2. **Installer les dépendances Node.js**
-npm install
+`npm install`
 
 
 3. **Installer les dépendances Python**
-pip install playwright beautifulsoup4 scrapy pandas numpy pymongo
-playwright install chromium
+`pip install playwright beautifulsoup4 scrapy pandas numpy pymongo`
+`playwright install chromium`
 
 
 4. **Configurer MongoDB**
 # Démarrer MongoDB
-mongod --dbpath /path/to/your/data/directory
+`mongod --dbpath /path/to/your/data/directory`
 
 
 5. **Configuration de l'environnement**
 Créer un fichier `.env` à la racine du projet :
-MONGODB_URI=mongodb://localhost:27017/marketpulse
-PORT=3000
-NODE_ENV=development
+`MONGODB_URI=mongodb://localhost:27017/marketpulse`
+`PORT=3000`
+`NODE_ENV=development`
 
 
 6. **Lancer le serveur**
-npm start
+`npm start`
 
 
 7. **Accéder à l'application**
@@ -250,7 +250,6 @@ Ouvrir votre navigateur et aller à `http://localhost:3000`
 ## 🚀 Utilisation
 
 ### Lancer le scraping
-
 bash
 # Exécuter le script de scraping Python
 python scraper/main.py
