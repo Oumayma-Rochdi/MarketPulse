@@ -55,7 +55,7 @@ L'extraction consiste à collecter des données à partir de diverses sources en
 4. Utilisation de sélecteurs CSS pour cibler les éléments spécifiques
 5. Collecte des informations produits (images, titres, prix, descriptions, catégories)
 
-\`\`\`python
+
 # Exemple de code d'extraction
 async with async_playwright() as p:
     browser = await p.chromium.launch()
@@ -68,7 +68,7 @@ async with async_playwright() as p:
         title = await product.query_selector('.product-title')
         price = await product.query_selector('.product-price')
         # ... extraction d'autres données
-\`\`\`
+
 
 ### 2. **Transformation (Transform)**
 
@@ -95,7 +95,7 @@ La transformation nettoie, normalise et enrichit les données extraites :
 - **pandas** : Manipulation et analyse de données
 - **NumPy** : Calculs numériques et opérations sur tableaux
 
-\`\`\`python
+
 # Exemple de transformation
 import pandas as pd
 
@@ -104,7 +104,7 @@ df = pd.DataFrame(raw_data)
 df = df.drop_duplicates()
 df['price'] = df['price'].str.replace('$', '').astype(float)
 df['category'] = df['category'].str.lower().str.strip()
-\`\`\`
+
 
 ### 3. **Chargement (Load)**
 
@@ -118,7 +118,7 @@ Le chargement stocke les données transformées dans la base de données :
 - **MongoDB** : Base de données NoSQL orientée documents
 - **Monk** : Bibliothèque Node.js pour interagir avec MongoDB
 
-\`\`\`javascript
+javascript
 // Exemple de chargement dans MongoDB
 const db = monk('localhost:27017/marketpulse');
 const products = db.get('products');
@@ -131,7 +131,7 @@ await products.insert({
   source: 'ebay',
   scrapedAt: new Date()
 });
-\`\`\`
+
 
 ### Flux ETL complet
  
@@ -215,40 +215,40 @@ await products.insert({
 ### Étapes d'installation
 
 1. **Cloner le repository**
-\`\`\`bash
+bash
 git clone https://github.com/Oumayma-Rochdi/MarketPulse.git
 cd marketpulse
-\`\`\`
+
 
 2. **Installer les dépendances Node.js**
-\`\`\`bash
+bash
 npm install
-\`\`\`
+
 
 3. **Installer les dépendances Python**
-\`\`\`bash
+bash
 pip install playwright beautifulsoup4 scrapy pandas numpy pymongo
 playwright install chromium
-\`\`\`
+
 
 4. **Configurer MongoDB**
-\`\`\`bash
+bash
 # Démarrer MongoDB
 mongod --dbpath /path/to/your/data/directory
-\`\`\`
+
 
 5. **Configuration de l'environnement**
 Créer un fichier `.env` à la racine du projet :
-\`\`\`env
+env
 MONGODB_URI=mongodb://localhost:27017/marketpulse
 PORT=3000
 NODE_ENV=development
-\`\`\`
+
 
 6. **Lancer le serveur**
-\`\`\`bash
+bash
 npm start
-\`\`\`
+
 
 7. **Accéder à l'application**
 Ouvrir votre navigateur et aller à `http://localhost:3000`
@@ -257,10 +257,10 @@ Ouvrir votre navigateur et aller à `http://localhost:3000`
 
 ### Lancer le scraping
 
-\`\`\`bash
+bash
 # Exécuter le script de scraping Python
 python scraper/main.py
-\`\`\`
+
 
 ### Démarrer le serveur de développement
 
