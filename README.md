@@ -134,19 +134,18 @@ await products.insert({
 \`\`\`
 
 ### Flux ETL complet
-
-┌─────────────┐       ┌──────────────┐       ┌─────────────┐
-│  EXTRACT    │──────▶│  TRANSFORM   │──────▶│    LOAD     │
-│             │       │              │       │             │
-│ Web Scraping│       │  Nettoyage   │       │  MongoDB    │
-│ Playwright  │       │ Normalisation│       │  Storage    │
-│ BeautifulSoup│      │  Intégration │       │             │
-└─────────────┘       └──────────────┘       └─────────────┘
-       │                     │                     │
-       ▼                     ▼                     ▼
-  Sites e-commerce    Données propres et    Base de données
-  (eBay, Jumia, etc.)  structurées prêtes    prête pour
-                        pour analyse         l’analyse
+ 
+        ┌──────────────┐        ┌──────────────┐        ┌─────────────┐
+        │   EXTRACT    │──────▶ │  TRANSFORM   │──────▶ │    LOAD     │
+        │              │        │              │        │             │
+        │ Web Scraping │        │  Nettoyage   │        │   MongoDB   │
+        │ Playwright   │        │ Normalisation│        │   Storage   │
+        │ BeautifulSoup│        │  Intégration │        │             │
+        └──────────────┘        └──────────────┘        └─────────────┘
+               │                        │                        │
+               ▼                        ▼                        ▼
+     Sites e-commerce           Données propres et        Base de données
+     (eBay, Jumia, etc.)       structurées prêtes        prête pour l’analyse
 
 
 ### Avantages du processus ETL
@@ -217,7 +216,7 @@ await products.insert({
 
 1. **Cloner le repository**
 \`\`\`bash
-git clone https://github.com/votre-username/marketpulse.git
+git clone https://github.com/Oumayma-Rochdi/MarketPulse.git
 cd marketpulse
 \`\`\`
 
@@ -304,7 +303,7 @@ Année Universitaire 2023-2024
 
 ## 🎥 Vidéo de démonstration
 
-[![Démonstration MarketPulse](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Démonstration MarketPulse](public/img/marketPulse.png)](demo_MarketPulse.mp4)
 
 
 
@@ -318,31 +317,6 @@ Pour voir une démonstration complète du projet, consultez notre vidéo de pré
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
-### MIT License
-
-\`\`\`
-MIT License
-
-Copyright (c) 2024 MarketPulse Team - ROCHDI Oumayma, ISMGANE Kawtar, EZRIOUIL Mohamed
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-\`\`\`
 
 ## 📊 Statistiques du projet
 
@@ -371,27 +345,4 @@ Pour toute question ou suggestion concernant ce projet :
 ---
 
 **Développé avec ❤️ par l'équipe MarketPulse - ENS Rabat 2024**
-\`\`\`
 
-```text file="LICENSE"
-MIT License
-
-Copyright (c) 2024 MarketPulse Team - ROCHDI Oumayma, ISMGANE Kawtar, EZRIOUIL Mohamed
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
