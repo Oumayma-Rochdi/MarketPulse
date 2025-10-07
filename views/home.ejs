@@ -1,0 +1,106 @@
+<%- include('layout/header') %>
+
+<!-- Hero Section -->
+<section id="img-slider">
+  <div class="slide active">
+    <img src="../img/img1.jpg" alt="">
+    <div class="info">
+      <h4 class="select-none"></h4>
+      <h2 class="select-none">Explorez vos produits</h2>
+      <h1 class="select-none">Rapidement</h1>
+      <p class="select-none">Économisez du temps et de l'argent avec nos offres !</p>
+      <button>Découvrir</button>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Section -->
+<section id="feature" class="section-p1">
+  <div class="fe-box">
+    <img src="../img/features/f1.png" alt="">
+    <h6>Comparaison des prix</h6>
+  </div>
+  <div class="fe-box">
+    <img src="../img/features/f3.png" alt="">
+    <h6>économiser de l'argent</h6>
+  </div>
+  <div class="fe-box">
+    <img src="../img/features/f4.png" alt="">
+    <h6>Promotion</h6>
+  </div>
+  <div class="fe-box">
+    <img src="../img/features/f5.png" alt="">
+    <h6>Happy sell</h6>
+  </div>
+  <div class="fe-box">
+    <img src="../img/features/f6.png" alt="">
+    <h6>Analyse de marché</h6>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="product1" class="section-p1">
+  <h2>les meilleurs offres</h2>
+  <div class="pro-container">
+    <% for (let i = 0; i < products.length; i++) { %>
+      <div class="pro" onclick="redirectTo('<%= products[i].link %>')">
+        <img src="<%= products[i].image %>" alt="Dynamic Image">
+        <div class="des">
+          <h5><%= products[i].title %></h5>
+          <span><%= products[i].category %></span>
+          <h4>$<%= products[i].price_min %></h4>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section id="banner" class="section-m1">
+  <h4>Offres à découvrir</h4>
+  <h2>Explorez <span>nos offres</span> dans divers magasins</h2>
+  <button class="normal">Explorer plus</button>
+</section>
+
+<!-- Small Banner -->
+<h4 style="text-align: center;">Categories</h4>
+<section id="sm-banner" class="section-p1">
+  <div class="banner-box">
+    <h2>Hommes</h2>
+    <button class="white" onclick="filterProducts('Mens-Athletic-Shoes,Mens-Casual-Shoes,Mens-Dress-Shoes,Mens-Sandals')">Cliquer ici</button>
+  </div>
+  <div class="banner-box">
+    <h2>Femmes</h2>
+    <button class="white" onclick="filterProducts('Womens-Sandals,Womens-Boots')">Cliquer ici</button>
+  </div>
+</section>
+
+
+<!-- Feature Banner -->
+<section id="banner3">
+  <div class="banner-box">
+    <h4 >Montres</h4>
+    <button class="white" onclick="filterProducts('Watches-Parts-Accessories')">Cliquer ici</button>
+  </div>
+  <div class="banner-box">
+    <h4>Accessoires, Bijoux, Sacs</h4>
+    <button class="white" onclick="filterProducts('Rings,Earrings')">Cliquer ici</button>
+  </div>
+  <div class="banner-box">
+    <h4>Chaussures</h4>
+    <button class="white" onclick="filterProducts('Womens-Sandals')">Cliquer ici</button>
+  </div>
+</section>
+
+
+<%- include('layout/footer') %>
+  <script>
+    function redirectTo(url) {
+        window.location.href = url;
+    }
+
+    function filterProducts(categories) {
+    // Rediriger vers la page qui filtre par la catégorie donnée
+    window.location.href = `/${categories}`;
+  }
+</script>

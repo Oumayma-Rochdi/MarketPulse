@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css" />
+
+<%- include('layout/header') %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary mb-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center">
+      <select id="priceFilter" class="form-select me-auto">
+        <option value="default">Trier les produits:</option>
+        <option value="default">par défaut</option>
+        <option value="1-10">de: 1-10$</option>
+        <option value="10-20">de: 10-20$</option>
+        <option value="20-100">de: 20-100$</option>
+        <option value="100+">de: +100$</option>
+      </select>
+    </div>
+    <form id="searchForm" class="d-flex ms-auto" role="search">
+      <input id="searchQuery" class="form-control me-2" type="search" placeholder="Rechercher votre produit" aria-label="Search" name="query">
+      <button class="btn btn-outline-success" type="submit" >Search</button>
+    </form>
+  </div>
+</nav>
+
+<section id="product-list" class="section-p1">
+  <% if (products.length === 0) { %>
+    <div class="alert alert-warning" role="alert">
+      Aucun produit trouvé.
+    </div>
+  <% } else { %>
+    <% for (let i = 0; i < products.length; i++) { %>
+      <div class="container margin">
+        <div class="card border-0 shadow mb-3">
+          <div class="row g-0">
+            <div class="col-md-4" style="border-radius: 20px; width: 278.2px; height: 278.2px;">
+              <img src="<%= products[i].image %>" alt="<%= products[i].title %>" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title fw-bold"><%= products[i].title %></h5>
+                <p class="card-text fs-4 text-success">$<%= products[i].price_min %></p>
+                <p class="card-text">Category: <%= products[i].category %></p>
+                <a href="#" class="btn btn-primary" onclick="redirectTo('<%= products[i].link %>')" style="background-color:#088178!important;">Cliquer pour plus d'information</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+</section>
+
+<section id="pagination" class="section-p1">
+  <% if (currentPage > 1) { %>
+    <a href="?page=<%= currentPage - 1 %>"><i class="fas fa-long-arrow-alt-left"></i></a>
+  <% } %>
+  
+  <% for (let i = 1; i <= totalPages; i++) { %>
+    <a href="?page=<%= i %>" class="<%= currentPage === i ? 'active' : '' %>"><%= i %></a>
+  <% } %>
+  
+  <% if (currentPage < totalPages) { %>
+    <a href="?page=<%= currentPage + 1 %>"><i class="fas fa-long-arrow-alt-right"></i></a>
+  <% } %>
+</section>
+
+<%- include('layout/footer') %>
+
+<script>
+  function redirectTo(url) {
+    window.location.href = url;
+  }
+
+  document.getElementById('priceFilter').addEventListener('change', function() {
+    const selectedValue = this.value;
+    const category = "<%= category %>"; // Assurez-vous que la variable category est passée au rendu de la vue
+    const query = document.getElementById('searchQuery').value;
+    let url = `/${category}`;
+    let queryParams = [];
+
+    if (selectedValue !== 'default') {
+      if (selectedValue === '100+') {
+        queryParams.push(`price_min=100`);
+      } else {
+        const [min, max] = selectedValue.split('-');
+        queryParams.push(`price_min=${min}&price_max=${max}`);
+      }
+    }
+
+    if (query) {
+      queryParams.push(`query=${query}`);
+    }
+
+    if (queryParams.length > 0) {
+      url += `?${queryParams.join('&')}`;
+    }
+
+    window.location.href = url;
+  });
+
+  document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const category = "<%= category %>";
+    const selectedValue = document.getElementById('priceFilter').value;
+    const query = document.getElementById('searchQuery').value;
+    let url = `/${category}`;
+    let queryParams = [];
+
+    if (selectedValue !== 'default') {
+      if (selectedValue === '100+') {
+        queryParams.push(`price_min=100`);
+      } else {
+        const [min, max] = selectedValue.split('-');
+        queryParams.push(`price_min=${min}&price_max=${max}`);
+      }
+    }
+
+    if (query) {
+      queryParams.push(`query=${query}`);
+    }
+
+    if (queryParams.length > 0) {
+      url += `?${queryParams.join('&')}`;
+    }
+
+    window.location.href = url;
+  });
+</script>
