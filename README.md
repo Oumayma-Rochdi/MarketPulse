@@ -135,19 +135,19 @@ await products.insert({
 
 ### Flux ETL complet
 
-\`\`\`
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│  EXTRACT    │────▶│  TRANSFORM   │────▶│    LOAD     │
-│             │     │              │     │             │
-│ Web Scraping│     │  Nettoyage   │     │  MongoDB    │
-│ (Playwright)│     │ Normalisation│     │  Storage    │
-│ BeautifulSoup│     │  Intégration │     │             │
-└─────────────┘     └──────────────┘     └─────────────┘
-       │                    │                    │
-       ▼                    ▼                    ▼
-  Sites e-commerce    Données propres      Base de données
-  (eBay, Jumia)       et structurées       prête pour l'analyse
-\`\`\`
+┌─────────────┐       ┌──────────────┐       ┌─────────────┐
+│  EXTRACT    │──────▶│  TRANSFORM   │──────▶│    LOAD     │
+│             │       │              │       │             │
+│ Web Scraping│       │  Nettoyage   │       │  MongoDB    │
+│ Playwright  │       │ Normalisation│       │  Storage    │
+│ BeautifulSoup│      │  Intégration │       │             │
+└─────────────┘       └──────────────┘       └─────────────┘
+       │                     │                     │
+       ▼                     ▼                     ▼
+  Sites e-commerce    Données propres et    Base de données
+  (eBay, Jumia, etc.)  structurées prêtes    prête pour
+                        pour analyse         l’analyse
+
 
 ### Avantages du processus ETL
 
@@ -282,11 +282,13 @@ Ce projet a été réalisé par une équipe de trois étudiants de la Licence Pr
 
 ### Développeurs
 
-| Nom | Rôle | Contribution |
-|-----|------|--------------|
-| **ROCHDI Oumayma** | Développeur Full-Stack | Frontend, Design UI/UX, Documentation |
-| **ISMGANE Kawtar** | Développeur Backend | Web Scraping, ETL, Base de données |
-| **EZZROUIL Mohammed** | Développeur Backend | Data Mining, API, Optimisation |
+| Nom complet         |
+| ------------------  |
+| **ROCHDI Oumayma**  |
+| **ISMGANE Kawtar**  |
+| **EZROUIL Mohamed** |
+
+
 
 ### Encadrement
 
